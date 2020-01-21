@@ -36,23 +36,57 @@ def negative_markers1(markers,positive):
     cpt=0
     while(i<m):
         j=0
+        
         while(j<p):
-            if(compare(markers[i],positive[j])==0):
+            
+            if(compare(markers[i],positive[j])!=0):
+                cpt+=1
+                t=True
+                
+            else:
                 t=False
                 break
-            else:
-                t=True
             j=j+1
+            
         if(t==True):
-            negative=np.append(negative,markers[i])
-            cpt=cpt+1
+            
+            negative=np.append(negative,markers[i])       
         i=i+1
-    return negative
+    return (negative,cpt)
 
 
 def negative_markers2(markers,positive):
     negative = np.array([])
-    return negative
+    n=len(positive)
+    m=len(markers)
+    p=len(positive)
+    cpt=0
+    temp=0
+    for i in range(2,n+1):
+        for j in range(0,n-i+1):
+            if str(positive[j])>str(positive[j+1]):
+                temp=positive[j]
+                positive[j]=positive[j+1]
+                positive[j+1]=temp
+    
+    pos=positive
+    i=0
+    while(i<m):
+        j=0
+        
+        while(j<p):
+            if(compare(markers[i],pos[j])!=0):
+                t=True
+                
+            else:
+                t=False
+                break
+            j=j+1
+        if(t==True):
+            cpt+=1
+            negative=np.append(negative,markers[i])       
+        i=i+1          
+    return (negative,cpt)
 
 # STRATEGY 3
 def negative_markers3(markers,positive):
@@ -60,9 +94,8 @@ def negative_markers3(markers,positive):
     return negative
         
 if __name__ == "__main__":
-    p= 5
-
-    m= 10
+    p = int(sys.argv[1])
+    m = int(sys.argv[2])
 
     assert (m > 0), "The number of markers must be greater than 0"
     assert (p <= m), "The number of positive markers must be less or equal to the number of markers"
@@ -71,17 +104,18 @@ if __name__ == "__main__":
     markers = exp.get_markers()
     positive = exp.get_positive_markers()
 
-    print(markers)
-    print(positive)
+    print("Markers: %s" % (markers))
+    print("Positive markers: %s" % (positive))
     
     # test stategy 1
     cpt = 0
-    print("Negative markers: %s" % (negative_markers1(markers,positive)))
-
+    print("Negative markers: %s" % (negative_markers1(markers,positive)[0]))
+    cpt=negative_markers1(markers,positive)[1]
     print("Nb. comparisons: %d" % (cpt))
     # test stategy 2
     cpt = 0
-    print("Negative markers: %s" % (negative_markers2(markers,positive)))
+    print("Negative markers: %s" % (negative_markers2(markers,positive)[0]))
+    cpt=negative_markers1(markers,positive)[1]
     print("Nb. comparisons: %d" % (cpt))
 
     # test stategy 3

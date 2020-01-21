@@ -1,0 +1,171 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>marker module &#8212; Module tp-experimentateur 0 documentation</title>
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="experience module" href="experience.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="experience.html" title="experience module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Module tp-experimentateur 0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="marker-module">
+<h1><code class="xref py py-mod docutils literal"><span class="pre">marker</span></code> module<a class="headerlink" href="#marker-module" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="marker.Marker">
+<em class="property">class </em><code class="descclassname">marker.</code><code class="descname">Marker</code><span class="sig-paren">(</span><em>number</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/marker.html#Marker"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marker.Marker" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="marker.Marker.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>number</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/marker.html#Marker.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marker.Marker.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new Marker.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> (<em>int</em><em> (</em><em>must be greater</em><em> or </em><em>equal than zero</em><em>)</em>) – The number of the marker</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="marker.Marker.cmp">
+<code class="descname">cmp</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/marker.html#Marker.cmp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marker.Marker.cmp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compares this marker and <em>other</em>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> (<a class="reference internal" href="#marker.Marker" title="marker.Marker"><em>Marker</em></a>) – The first marker</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">-1, 0 or 1 resp. if <em>self &lt; other</em>, <em>self</em> = <em>other</em> or <em>self</em> &gt; <em>other</em></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Marker</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span><span class="o">.</span><span class="n">cmp</span><span class="p">(</span><span class="n">Marker</span><span class="p">(</span><span class="mi">234</span><span class="p">))</span>
+<span class="go">-1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Marker</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span><span class="o">.</span><span class="n">cmp</span><span class="p">(</span><span class="n">Marker</span><span class="p">(</span><span class="mi">45</span><span class="p">))</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Marker</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span><span class="o">.</span><span class="n">cmp</span><span class="p">(</span><span class="n">Marker</span><span class="p">(</span><span class="mi">24</span><span class="p">))</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="marker.Marker.markers">
+<em class="property">static </em><code class="descname">markers</code><span class="sig-paren">(</span><em>p</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/marker.html#Marker.markers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marker.Marker.markers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of <em>p</em> markers. Markers are in random ordering.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> (<em>int</em>) – The number of markers (must be strictly greater than 0).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The list of markers</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">List of String</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">marker</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">([</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">marker</span><span class="o">.</span><span class="n">Marker</span><span class="o">.</span><span class="n">markers</span><span class="p">(</span><span class="mi">10</span><span class="p">)])</span>
+<span class="go">[&#39;m0&#39;, &#39;m1&#39;, &#39;m2&#39;, &#39;m3&#39;, &#39;m4&#39;, &#39;m5&#39;, &#39;m6&#39;, &#39;m7&#39;, &#39;m8&#39;, &#39;m9&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo_FIL.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="experience.html"
+                        title="previous chapter"><code class="docutils literal"><span class="pre">experience</span></code> module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/marker.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="experience.html" title="experience module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Module tp-experimentateur 0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015-2018, Aboubakar siriki Diakite,elias frik, Univ. Lille.
+      Last updated on 21/01/2020.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+    </div>
+  </body>
+</html>
