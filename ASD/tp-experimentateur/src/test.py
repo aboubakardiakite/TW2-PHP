@@ -14,6 +14,7 @@ import marker
 import numpy as np
 
 def compare (m1,m2):
+    cpt=cpt+1
     return m1.cmp(m2)
 
 # STRATEGY 1
@@ -33,14 +34,14 @@ def negative_markers1(markers,positive):
     m=len(markers)
     p=len(positive)
     i=0
-    cpt=0
+    
     while(i<m):
         j=0
         
         while(j<p):
             
             if(compare(markers[i],positive[j])!=0):
-                cpt+=1
+                
                 t=True
                 
             else:
@@ -52,7 +53,7 @@ def negative_markers1(markers,positive):
             
             negative=np.append(negative,markers[i])       
         i=i+1
-    return (negative,cpt)
+    return negative
 
 
 def negative_markers2(markers,positive):
@@ -60,7 +61,7 @@ def negative_markers2(markers,positive):
     n=len(positive)
     m=len(markers)
     p=len(positive)
-    cpt=0
+
     temp=0
     for i in range(2,n+1):
         for j in range(0,n-i+1):
@@ -83,10 +84,10 @@ def negative_markers2(markers,positive):
                 break
             j=j+1
         if(t==True):
-            cpt+=1
+        
             negative=np.append(negative,markers[i])       
         i=i+1          
-    return (negative,cpt)
+    return negative
 
 # STRATEGY 3
 def negative_markers3(markers,positive):
@@ -94,8 +95,8 @@ def negative_markers3(markers,positive):
     return negative
         
 if __name__ == "__main__":
-    p = int(sys.argv[1])
-    m = int(sys.argv[2])
+    p = 5
+    m = 10
 
     assert (m > 0), "The number of markers must be greater than 0"
     assert (p <= m), "The number of positive markers must be less or equal to the number of markers"
@@ -109,13 +110,11 @@ if __name__ == "__main__":
     
     # test stategy 1
     cpt = 0
-    print("Negative markers: %s" % (negative_markers1(markers,positive)[0]))
-    cpt=negative_markers1(markers,positive)[1]
+    print("Negative markers: %s" % (negative_markers1(markers,positive)))
     print("Nb. comparisons: %d" % (cpt))
     # test stategy 2
     cpt = 0
-    print("Negative markers: %s" % (negative_markers2(markers,positive)[0]))
-    cpt=negative_markers1(markers,positive)[1]
+    print("Negative markers: %s" % (negative_markers2(markers,positive)))
     print("Nb. comparisons: %d" % (cpt))
 
     # test stategy 3

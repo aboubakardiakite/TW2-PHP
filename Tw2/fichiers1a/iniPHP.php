@@ -50,6 +50,31 @@
 			}
 		?>
 	</section>
+	<section>
+		<h2>Question 5</h2>
+		<p><?php
+		 function paragrapheTronque($texte,$i){
+			 $j=0;
+		 	 $k=0;	 
+			while($j<$i){
+
+				$var=substr($texte,$j,$k++);
+				echo "<p>$var</p>";
+			}	
+			
+
+		 }
+		?></p>
+		<p>
+		<?php
+			$texte="laurent dramane";
+			$i=strlen($texte);	
+			paragrapheTronque($texte,$i);
+		?>
+		</p>
+		
+
+	</section>
     </body>
     
 </html>
