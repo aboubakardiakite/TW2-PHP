@@ -11,10 +11,12 @@
 import sys
 import experience
 import marker
+import sorting as s
 import numpy as np
 
 def compare (m1,m2):
-    cpt=cpt+1
+    global cpt
+    cpt+=1
     return m1.cmp(m2)
 
 # STRATEGY 1
@@ -31,72 +33,86 @@ def negative_markers1(markers,positive):
     :rtype: Numpy array of String
     """
     negative = np.array([])
-    m=len(markers)
-    p=len(positive)
     i=0
-    
-    while(i<m):
+    while(i<len(markers)):
         j=0
-        
-        while(j<p):
-            
+        while(j<len(positive)):
             if(compare(markers[i],positive[j])!=0):
-                
                 t=True
-                
             else:
                 t=False
                 break
             j=j+1
-            
         if(t==True):
-            
             negative=np.append(negative,markers[i])       
         i=i+1
+        
+        
     return negative
 
+#recherche  dichotomique
+def recherche_dichotomique( element, liste_triee ):
+    a = 0
+    b = len(liste_triee)-1
+    m = (a+b)//2
+    while a < b :
+        if liste_triee[m] == element :
+            return m
+        elif liste_triee[m] > element :
+            b = m-1
+        else :
+            a = m+1
+        m = (a+b)//2
+    return a
 
 def negative_markers2(markers,positive):
     negative = np.array([])
-    n=len(positive)
-    m=len(markers)
-    p=len(positive)
-
-    temp=0
-    for i in range(2,n+1):
-        for j in range(0,n-i+1):
-            if str(positive[j])>str(positive[j+1]):
-                temp=positive[j]
-                positive[j]=positive[j+1]
-                positive[j+1]=temp
-    
-    pos=positive
     i=0
-    while(i<m):
+    s.merge_sort(positive,compare)
+    while(i<len(markers)):
         j=0
-        
-        while(j<p):
-            if(compare(markers[i],pos[j])!=0):
+        while(j<len(positive)):
+            if(compare(markers[i],positive[j])!=0):
                 t=True
-                
             else:
                 t=False
                 break
             j=j+1
         if(t==True):
-        
             negative=np.append(negative,markers[i])       
-        i=i+1          
+        i=i+1
     return negative
 
 # STRATEGY 3
 def negative_markers3(markers,positive):
     negative = np.array([])
+    i=0
+
+    markers=s.merge_sort(markers,compare)
+    positive=s.merge_sort(positive,compare)
+    
+    while(i<len(markers)):
+        j=0
+        while(j<len(positive)):
+            
+               
+            if(compare(markers[i:len(markers)],positive[j])==0):
+                t=False
+                break
+            else:
+                t=True
+                
+            j=j+1
+        if(t==True):
+            negative=np.append(negative,markers[i])       
+        i=i+1
     return negative
+    
+   
         
 if __name__ == "__main__":
-    p = 5
-    m = 10
+    p = int(sys.argv[1])
+    m = int(sys.argv[2])
 
     assert (m > 0), "The number of markers must be greater than 0"
     assert (p <= m), "The number of positive markers must be less or equal to the number of markers"
@@ -112,6 +128,7 @@ if __name__ == "__main__":
     cpt = 0
     print("Negative markers: %s" % (negative_markers1(markers,positive)))
     print("Nb. comparisons: %d" % (cpt))
+
     # test stategy 2
     cpt = 0
     print("Negative markers: %s" % (negative_markers2(markers,positive)))
