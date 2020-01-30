@@ -1,0 +1,8 @@
+$ligne=trim($ligne);
+                $keys=strpos($ligne,$deuxPoints);
+                $keys=trim($keys);
+                $valeur=strstr($ligne,$deuxPoints);
+                $valeur=str_replace($deuxPoints,"",$ligne);
+                $valeur=trim($valeur);
+                echo "$keys"."$valeur"."\n";
+                $ligne=fgets($file);

@@ -1,0 +1,39 @@
+* {
+    font-family : sans-serif;
+}
+
+header h1, header h2 {
+    text-align: center;
+}
+section {
+    border : dashed 4pt darkgrey;
+    margin : 50px;
+    padding : 3pt;
+    background-color : lightyellow;
+}
+
+span.nom {
+    color : darkred;
+    font-weight : bold;
+}
+section h2 {
+    font-size : 13pt;
+    color : white;
+    background-color : darkred;
+    width : 35%;
+    border-radius: 7pt;
+
+  margin : 0;
+  margin-bottom : 10pt;
+  text-align : right;
+  padding : 3pt;
+}
+
+table#multiplications {
+    border-collapse : collapse;
+}
+table#multiplications td {
+    border : solid 1pt;
+    text-align : center;
+    padding : 1mm;
+}
