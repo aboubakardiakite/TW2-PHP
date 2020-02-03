@@ -136,26 +136,53 @@
 						function tablesMultiplication(){
 							for($i=1;$i<10;$i++){
 								echo "<li>";
-								echo "<ul>";
-								for($j=1;$j<10;$j++){
+								echo "<ul>";//la deuxieme liste qui est dans la premier
+								for($j=1;$j<10;$j++){//cette boucle sert a multiple les $i par les $j
 									$var=multiplication($i,$j);
 									echo " <li>  $i * $j = $var </li>\n";
 
 								}
-								echo "</ul>";
-								echo "<br/>";
+								echo "</ul>";//fermeture de la deuxieme liste
+								echo "<br/>";//faire un retour a la ligne apres chaque multiplecation de $i
 								echo "</li>";
 							}
 						}
 					?>
 					<?php
-						echo "<ul>";
+						echo "<ul>";//la premier liste a puce
 						tablesMultiplication();
-						echo "<ul>";
+						echo "</ul>";//fermeture de la deuxiemeliste
 					?>
 		</section>
-		
+		<section>
+				<h2>Question 9</h2>
+						<?php
+							echo "<table id=\"multiplications\">";//faire un tableau de table de multiplication
+								echo "<thead>";
+								   echo "<tr>";
+									echo "<th>*</th>";
+									for($i=1;$i<10;$i++){
+										echo "<th> $i</th>";
+									}
+									echo "</tr>";
+								echo "</thead>";
+								echo "<tbody>";
+											for($i=1;$i<10;$i++){
+												echo "<tr><th> $i </th>";
+												for($j=1;$j<10;$j++){
+													echo "<td>";
+														echo multiplication($i,$j);
+													echo "</td>";
+												}
+												echo "</tr>";
+											}
+										
+								echo "</tbody>";
+							echo "</table>"
+						?>
 
+
+		</section>
     </body>
     
 </html>
