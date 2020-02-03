@@ -14,10 +14,11 @@ import marker
 import sorting as s
 import numpy as np
 
-def compare (m1,m2):
+def compare(m1,m2):
     global cpt
     cpt+=1
     return m1.cmp(m2)
+
 
 # STRATEGY 1
 def negative_markers1(markers,positive):
@@ -51,14 +52,14 @@ def negative_markers1(markers,positive):
     return negative
 
 #recherche  dichotomique
-def recherche_dichotomique( element, liste_triee ):
+def recherche_dichotomique( element, liste_triee):
     a = 0
     b = len(liste_triee)-1
     m = (a+b)//2
     while a < b :
-        if liste_triee[m] == element :
+        if str(liste_triee[m])==str(element):
             return m
-        elif liste_triee[m] > element :
+        elif str(liste_triee[m]) > str(element) :
             b = m-1
         else :
             a = m+1
@@ -72,11 +73,12 @@ def negative_markers2(markers,positive):
     while(i<len(markers)):
         j=0
         while(j<len(positive)):
-            if(compare(markers[i],positive[j])!=0):
-                t=True
-            else:
+            indice = recherche_dichotomique( markers[i], positive)
+            if(compare(markers[i],positive[indice])):
                 t=False
                 break
+            else:
+                t=True
             j=j+1
         if(t==True):
             negative=np.append(negative,markers[i])       
@@ -86,26 +88,22 @@ def negative_markers2(markers,positive):
 # STRATEGY 3
 def negative_markers3(markers,positive):
     negative = np.array([])
-    i=0
 
     markers=s.merge_sort(markers,compare)
     positive=s.merge_sort(positive,compare)
+
+    while(len(markers)>0 and len(positive)>0):
+        if(compare(markers[0],positive[0])==0):
+            markers=markers[1:len(markers)]
+            positive=positive[1:len(positive)]
+        else:
+            negative=np.append(negative,markers[0])
+            markers=markers[1:len(markers)]
+        
+
+    if(len(markers)!=0):
+        negative=np.append(negative,markers)
     
-    while(i<len(markers)):
-        j=0
-        while(j<len(positive)):
-            
-               
-            if(compare(markers[i:len(markers)],positive[j])==0):
-                t=False
-                break
-            else:
-                t=True
-                
-            j=j+1
-        if(t==True):
-            negative=np.append(negative,markers[i])       
-        i=i+1
     return negative
     
    
