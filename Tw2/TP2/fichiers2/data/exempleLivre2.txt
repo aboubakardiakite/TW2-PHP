@@ -1,8 +1,18 @@
+
+
+
+
+
 couverture : scorpion.jpg
-  titre   : La marque du diable       
+    titre   : La marque du diable       
 serie : Le Scorpion
 auteurs :    Marini - Desberg   
 année   :  2000
 catégorie  : bandes-dessinées
 
-etc etc
+
+
+
+
+
+etc  etc

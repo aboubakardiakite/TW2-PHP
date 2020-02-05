@@ -1,6 +1,6 @@
 <?php
 // ajouter ici les fonctions à développer
-
+/*
 function readBook($file){
 	$ligne=fgets($file);
         $deuxPoints=":";
@@ -14,17 +14,14 @@ function readBook($file){
                 $tailleChaine=strlen($ligne);
                 $keys=trim(substr($ligne,0,($indiceDeuxPoint)));
                 $value=trim(substr($ligne,($indiceDeuxPoint+1),($tailleChaine+1)));
-        
                 $tab[$keys]=$value;
-                
                 $ligne=fgets($file);
 
                 
         }
         fclose($file);
         return($tab);                                
-}
-
+}*/
 function elementBuilder($elementType,$content,$elementClass=""){
         $espace="";
         if($elementClass!==""){
@@ -43,10 +40,12 @@ function coverToHTML($fileName){
 }
 
 function propertyToHTML($proName,$proprValue){
-        if($proName=="titre"){
+        if($proName==="couverture"){
+                $propi= elementBuilder("div",coverToHTML($proprValue),$proName);
+        }elseif($proName=="titre"){
                 $propi= elementBuilder("h2",$proprValue,$proName);
-        }else if($proName==="couverture"){
-                $propi= elementBuilder("div",coverToHTML($proprValue),$proName);      
+        }else if($proName==="serie"){
+                $propi=elementBuilder("div",$proprValue,$proName);
         }else if($proName==="auteurs"){
                 $propi= elementBuilder("div",authorsToHTML($proprValue),$proName);
         }else if($proName==="année"){
@@ -66,16 +65,81 @@ function bookToHTML($book){
                 if($keys==="couverture"){
                         $ed= propertyToHTML($keys,$val);
                         $res.=$ed;
-                        echo "$br";
+                        $ed.=$br;
                 }else{
                         $es=  propertyToHTML($keys,$val);
                         $dec.=$es;
-                        echo "$br";
+                        $dec.=$br;
                  }
         
                 }
         $res.=elementBuilder("div",$dec,"description");
-return elementBuilder("article",$res,"livre");
+        $res.=$br;
+        $art=elementBuilder("article",$res,"livre");
+        return elementBuilder("section",$art);
 }
+
+function readBook($file){
+	$ligne=fgets($file);
+        $deuxPoints=":";
+        $tab1=array();
+        $tab2=array();
+        $cpt=0;
+        while($ligne !== FALSE){
+                while(strlen($ligne)>2){
+                $keys='';
+                $value='';
+                $indiceDeuxPoint=strpos($ligne,$deuxPoints);
+                if($indiceDeuxPoint==FALSE){
+                        throw new Exception("pas de :");
+                }
+                $tailleChaine=strlen($ligne);
+                $keys=trim(substr($ligne,0,($indiceDeuxPoint)));
+                $value=trim(substr($ligne,($indiceDeuxPoint+1),($tailleChaine+1)));
+                $ligne=fgets($file);
+                $tab1[$keys]=$value;
+                
+                }
+                $tab2[]=$tab1;
+                $tab1=array();
+                $ligne=fgets($file);
+                $cpt=$cpt+1;
+                
+        }
+        if($cpt==0){
+                echo "FALSE";
+        }
+        fclose($file);
+        return($tab2);                            
+}
+
+function libraryToHTML($file){
+        $res="";
+        $dec="";
+        $br="<br/>";
+        foreach($file as $key=>$vale){
+                foreach($vale as $keys=>$val){
+                        if($keys==="couverture"){
+                                $ed= propertyToHTML($keys,$val);
+                                $res.=$ed;
+                                $ed.=$br;
+                        }else{
+                                $es=  propertyToHTML($keys,$val);
+                                $dec.=$es;
+                                $dec.=$br;
+                         }
+                }
+                $res.=elementBuilder("div",$dec,"description");
+                $res.=$br;
+                $art=elementBuilder("article",$res,"livre");
+                $art.=$br;
+                $sec=elementBuilder("section",$art);
+                $sec.=$art;
+        
+        }
+        
+        return $sec;
+}
+
 
 ?>
