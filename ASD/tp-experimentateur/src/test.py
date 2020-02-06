@@ -99,31 +99,45 @@ def negative_markers3(markers,positive):
     while(j<len(positive)):
         comp=compare(markers[i],positive[j])
         if(comp==0):
-            i=i+1;
-            j=j+1;
+            i=i+1
+            j=j+1
         elif(comp<0):
             negative=np.append(negative,markers[i])
             i=i+1
-    for k in range(10,len(markers)):
+           
+    for k in range(len(positive),len(markers)):
         negative=np.append(negative,markers[k])
-    
+        
     return negative
     
    
         
 if __name__ == "__main__":
-    p = int(sys.argv[1])
-    m = int(sys.argv[2])
+    #p = int(sys.argv[1])
+    m = int(sys.argv[1])
 
-    assert (m > 0), "The number of markers must be greater than 0"
-    assert (p <= m), "The number of positive markers must be less or equal to the number of markers"
+  #  assert (m > 0), "The number of markers must be greater than 0"
+  #  assert (p <= m), "The number of positive markers must be less or equal to the number of markers"
     
-    exp = experience.Experience(p,m)
-    markers = exp.get_markers()
-    positive = exp.get_positive_markers()
+    for i in range(m):
+        cpt=0
+        p=i+1
+        exp = experience.Experience(p,m)
+        markers = exp.get_markers()
+        positive = exp.get_positive_markers()
+        #line=str(10)+" "+str(p)+"{:d} {:d} {:d}"
+        negative_markers1(markers,positive)
+        c1=cpt
+        cpt=0
+        negative_markers2(markers,positive)
+        c2=cpt
+        cpt=0
+        negative_markers3(markers,positive)
+        c3=cpt
+        print("{:d} {:d} {:d} {:d} {:d}".format(m,p,c1,c2,c3))
     
-    
-"""
+    """
+
     print("Markers: %s" % (markers))
     print("Positive markers: %s" % (positive))
     
@@ -141,4 +155,5 @@ if __name__ == "__main__":
     cpt = 0
     print("Negative markers: %s" % (negative_markers3(markers,positive)))
     print("Nb. comparisons: %d" % (cpt))
+
 """

@@ -27,7 +27,11 @@ function testReadBook($fileName){
  */
 // une description corretce de livre suivie de la fin de fichier
 // doit produire un résultat correct
+<<<<<<< HEAD:Tw2/Diakite_aboubakar-frik_elias-TP2/fichiers2/data/debug.php
 testReadBook('exempleLivre.txt');
+=======
+testReadBook('data/exempleLivre.txt');
+>>>>>>> 0a95c380dfa24e2ed291c554805ecc19ecec79ea:Tw2/TP2/fichiers2/debug.php
 
 // une description de livre,(avec des espaces inutiles) suivie d'une ligne vide puis d'un autre texte à ignorer
 // doit produire un résultat correct
