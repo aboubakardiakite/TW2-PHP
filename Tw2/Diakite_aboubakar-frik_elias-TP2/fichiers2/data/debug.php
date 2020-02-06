@@ -7,7 +7,7 @@ header("Content-Type: text/plain;charset=UTF-8");
 /**
  * Inclusion du fichier de définitions de fonctions :
  */
-require_once("lib/fonctionsLivre.php");    // inclusion de fichier
+require_once("../lib/fonctionsLivre.php");    // inclusion de fichier
 
 /* Test question 1.1
  */
@@ -27,7 +27,7 @@ function testReadBook($fileName){
  */
 // une description corretce de livre suivie de la fin de fichier
 // doit produire un résultat correct
-//testReadBook('data/exempleLivre.txt');
+testReadBook('exempleLivre.txt');
 
 // une description de livre,(avec des espaces inutiles) suivie d'une ligne vide puis d'un autre texte à ignorer
 // doit produire un résultat correct
@@ -37,8 +37,6 @@ function testReadBook($fileName){
 // doit déclencher une exception
 //testReadBook('data/exempleLivreErrone.txt');
 
-$valeur=propertyToHTML('auteurs', 'Marini - Desberg');
-echo "$valeur";
 /**
 Voilà ce qui devrait s'afficher :
 =================================
