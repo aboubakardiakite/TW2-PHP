@@ -21,4 +21,13 @@ echo " tableau trié par la fonction usort avec la comparaison strcmp Array
 ";
 usort($tab,"strcmp");
 print_r($tab);
+$tab = array("abcd","00","bdef","efghij","z","aa","abcde","xyz");
+echo "tableau trié par la fonction usort avec la comparaison comparerChainesParLongueur Array";
+$tab=comparerChainesParLongueur($tab);
+print_r($tab);
+$tab = array("abcd","00","bdef","efghij","z","aa","abcde","xyz");
+echo "tableau trié par la fonction usort avec la comparaison comparerChainesParLongueurPLus Array";
+$tab=comparerChainesParLongueurPLus($tab);
+print_r($tab);
+
 ?>
