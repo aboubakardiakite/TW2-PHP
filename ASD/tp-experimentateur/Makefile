@@ -2,7 +2,7 @@ PROJECT=tp-experimentateur
 AUTHOR=Aboubakar siriki Diakite,elias frik
 PYTHONPATH=./src
 export PYTHONPATH
-SPHINXSEARCH=python3 -m sphinx
+SPHINXSEARCH=python -m sphinx
 CONFIGPATH=.
 SOURCEDOC=sourcedoc
 DOC=doc
