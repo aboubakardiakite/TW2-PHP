@@ -36,7 +36,18 @@ function comparerChainesParLongueurPlus($tab){
 		}
 	}
 	return $tab;
+	
 }
+
+function compareParTitre($titre1,$titre2){
+	return strcmp($titre1['titre'],$titre2['titre']);
+}
+
+function compareParcategories($categorie1,$categorie2){
+        return strcmp($categorie1['catégorie'],$categorie2['catégorie']);
+}
+
+
 
 
 ?>

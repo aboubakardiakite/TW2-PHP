@@ -1,0 +1,83 @@
+tableau de nombres initial : Array
+(
+    [0] => 6
+    [1] => 0
+    [2] => -3
+    [3] => 12
+    [4] => -15
+    [5] => 25
+    [6] => -1
+    [7] => 44
+    [8] => 19
+    [9] => -8
+)
+tableau trié par la fonction sort : Array
+(
+    [0] => -15
+    [1] => -8
+    [2] => -3
+    [3] => -1
+    [4] => 0
+    [5] => 6
+    [6] => 12
+    [7] => 19
+    [8] => 25
+    [9] => 44
+)
+tableau trié par la fonction usort avec la comparaison compareAbs : Array
+(
+    [0] => 0
+    [1] => -1
+    [2] => -3
+    [3] => 6
+    [4] => -8
+    [5] => 12
+    [6] => -15
+    [7] => 19
+    [8] => 25
+    [9] => 44
+)
+tableau de chaînes initial : Array
+(
+    [0] => abcd
+    [1] => 00
+    [2] => bdef
+    [3] => efghij
+    [4] => z
+    [5] => aa
+    [6] => abcde
+    [7] => xyz
+)
+tableau trié par la fonction usort avec la comparaison strcmp Array
+(
+    [0] => 00
+    [1] => aa
+    [2] => abcd
+    [3] => abcde
+    [4] => bdef
+    [5] => efghij
+    [6] => xyz
+    [7] => z
+)
+tableau trié par la fonction usort avec la comparaison comparerChainesParLongueur Array
+(
+    [0] => z
+    [1] => 00
+    [2] => aa
+    [3] => xyz
+    [4] => abcd
+    [5] => bdef
+    [6] => abcde
+    [7] => efghij
+)
+tableau trié par la fonction usort avec la comparaison comparerChainesParLongueurPlus Array
+(
+    [0] => z
+    [1] => aa
+    [2] => 00
+    [3] => xyz
+    [4] => bdef
+    [5] => abcd
+    [6] => abcde
+    [7] => efghij
+)
