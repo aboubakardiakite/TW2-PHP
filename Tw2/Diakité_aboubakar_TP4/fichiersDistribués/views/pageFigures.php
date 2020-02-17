@@ -75,10 +75,10 @@
   <?php
    echo cercle($centreX,$centreY,$rayon)."\n";
    
-   echo carreInscrit($centreX,$centreY,$rayon)."\n";
-   /*
+   echo carreInscrit($centreX,$centreY,$rayon,$angle)."\n";
+   
    echo triangleInscrit($centreX,$centreY,$rayon,$angle)."\n";
-   */
+   
   ?>
             </g>
         </svg>
