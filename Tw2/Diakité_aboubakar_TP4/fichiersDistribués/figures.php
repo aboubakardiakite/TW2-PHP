@@ -1,9 +1,9 @@
 <?php
 require('lib/fonctionsSVG.php');
- $centreX= 70;
- $centreY=50;
- $rayon =52 ;
- $angle=sc;
+ $centreX=$_GET["cx"];
+ $centreY=$_GET["cy"] ;
+ $rayon = $_GET["cr"];
+ $angle= $_GET["ca"];
 
  if(!isset($angle) || $angle=='') $angle=50;
 
@@ -16,4 +16,3 @@ require('lib/fonctionsSVG.php');
 		 /* inclusion de la page d'erreur */
 	 require('views/pageErreur.html');
 }
-?>

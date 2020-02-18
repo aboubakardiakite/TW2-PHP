@@ -5,15 +5,21 @@
         <title>Formulaire</title>
     </head>
     <body>
-    	<form action="../figures.php" method="post">
+    	<form action="figures.php" method="get">
 		<fieldset id="Coordonnées" >
-			<label for="cx">Coordonnées de x :</label>
+			<label for="cx">Valeur de x :</label>
 			<input name="cx" id="cx" type="text" size="16" maxlength="30" />
 		<br/>
-			<label for="cy">Coordonnées de y :</label>
+			<label for="cy">Valeur de y :</label>
                         <input name="cy" id="cy" type="text" size="16" maxlength="30" />
+
+		<br/>
+                        <label for="cr">Valeur du rayon :</label>
+                        <input name="cr" id="cr" type="text" size="16" maxlength="30" />
+
+
                 <br/>
-			<label for="ca">Coordonnées de l'angle :</label>
+			<label for="ca">Valeur de l'angle :</label>
                         <input name="ca" id="ca" type="text" size="16" maxlength="30" />
 		</fieldset>
 		<div id="validation">
