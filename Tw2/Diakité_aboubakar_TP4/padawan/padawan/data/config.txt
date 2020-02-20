@@ -1,0 +1,12 @@
+Id: accueil
+Description: Accueil
+File: accueil.html
+
+Id: qui
+Description : Qui suis-je ?
+File: presentation.html
+
+Id: time
+Description : Quelle heure est-il ?
+File : whattimeisit.php
+

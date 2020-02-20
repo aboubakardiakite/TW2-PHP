@@ -72,14 +72,19 @@
             </g> 
             <!-- dessin   -->
             <g id="dessin">
-  <?php
+<?php
+if($gl==1){
    echo cercle($centreX,$centreY,$rayon)."\n";
-   
+}else if($gl==2){
    echo carreInscrit($centreX,$centreY,$rayon,$angle)."\n";
-   
+}else if($gl==3){
    echo triangleInscrit($centreX,$centreY,$rayon,$angle)."\n";
-   
-  ?>
+}else if($gl==4){
+   echo cercle($centreX,$centreY,$rayon)."\n";
+   echo carreInscrit($centreX,$centreY,$rayon,$angle)."\n";
+   echo triangleInscrit($centreX,$centreY,$rayon,$angle)."\n";
+}
+?>
             </g>
         </svg>
     </body>

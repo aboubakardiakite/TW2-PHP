@@ -1,0 +1,90 @@
+*{
+	font-family : Gudea, sans-serif;
+}
+
+html{
+	margin:0;
+	padding : 0;
+}
+body {
+	margin : 0;
+	padding : 0;
+	background-color : #F2F2F2;
+	color : #03585E;
+}
+header {
+	background-color : #4f9da6;
+	margin-top : 0;
+	background-image : url(images/9624850987_2a224cc3e9_k.jpg);
+	background-size : 100%;
+	background-position : center center;
+	height : 300px;
+}
+header>h1{
+	margin : 0px 10px 0px 50px;
+	padding : 5px;
+	text-align : right;
+	color : #facf5a;
+}
+nav:before{
+	background-color: rgba(242,242,242,0.8);
+	border-radius: 2px;
+	background-image : url(images/icon_menu.svg);
+	display : inline-block;
+	content:"";
+	min-width : 20px;
+	min-height : 20px;
+	background-size : cover;
+	padding : 0px;
+}
+nav{
+  display : inline-block;
+  padding : 2px;
+  position: absolute;
+  top : 0;
+}
+nav:hover{
+    background-color : rgba(242,242,242,0.8);
+	padding-right : 10px;
+	padding-bottom : 10px;
+	border-radius : 3px;
+	
+}
+nav>*{
+ display : none; 
+}
+nav:hover>#credit{
+	display : block;
+	font-size : 5pt;
+	color:inherit;
+}
+nav:hover>#credit a{
+	color:inherit;
+}
+nav>ul>li{
+ padding : 3px;
+}
+nav>ul>li:hover{
+ background-color : rgba(210,210,210,0.5);
+}
+nav>ul>li a{
+ text-decoration : none;
+ color : inherit;
+}
+nav:hover>ul{
+  display : block;
+  background-color : rgba(170,138,82,0.6);
+  padding : 5px;
+  margin : 0;
+  border-radius : 3px;
+  list-style-type: none;
+  z-index: 1;
+}
+section#content{
+	margin : 10px 2px;
+	padding : 3px;
+}
+section#content>h2{
+	margin-top : 0;
+	min-height : 24px;
+}

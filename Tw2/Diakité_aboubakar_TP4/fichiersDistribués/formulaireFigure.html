@@ -7,6 +7,14 @@
     <body>
     	<form action="figures.php" method="get">
 		<fieldset id="Coordonnées" >
+			<label for="figure" style="vertical-align: top">Figures : </label>
+			<select id="figure" name="figure" >
+				<option value="1">cercle</option>
+				<option value="2">carré</option>
+				<option value="3">triangle</option>
+				<option selected="selected" value="4">all</option>
+			</select>
+			<br/>
 			<label for="cx">Valeur de x :</label>
 			<input name="cx" id="cx" type="text" size="16" maxlength="30" />
 		<br/>
