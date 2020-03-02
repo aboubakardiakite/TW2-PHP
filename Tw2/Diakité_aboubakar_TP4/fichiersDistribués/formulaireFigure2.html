@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Formulaire</title>
+    </head>
+    <body>
+        <form action="figures.php" method="get">
+                <fieldset id="Coordonnées" >
+			<input type="radio" id="f1" name="figure" value="1"/>
+				<label for="f1">cercle</label>
+			<input type="radio" id="f2" name="figure" value="2"/>
+                                <label for="f2">carré</label>
+			<input type="radio" id="f3" name="figure" value="3"/>
+                                <label for="f3">triangle</label>
+			<input type="radio" checked="checked" id="f4" name="figure" value="4"/>
+                                <label for="f4">all</label>
+			<br/>
+                        <label for="cx">Valeur de x :</label>
+                        <input name="cx" id="cx" type="text" size="16" maxlength="30" />
+                <br/>
+                        <label for="cy">Valeur de y :</label>
+                        <input name="cy" id="cy" type="text" size="16" maxlength="30" />
+
+                <br/>
+                        <label for="cr">Valeur du rayon :</label>
+                        <input name="cr" id="cr" type="text" size="16" maxlength="30" />
+
+
+                <br/>
+                        <label for="ca">Valeur de l'angle :</label>
+                        <input name="ca" id="ca" type="text" size="16" maxlength="30" />
+                </fieldset>
+                <div id="validation">
+                        <button type="submit" name="valid" value="ok">Valider</button>
+                </div>
+        </form>
+         
+
+
+    </body>
+</html>
+
