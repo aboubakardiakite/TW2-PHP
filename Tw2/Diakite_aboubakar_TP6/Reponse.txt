@@ -1,0 +1,112 @@
+Exercice 1
+
+Question 1:
+
+	a- select dossard,nom from coureurs
+
+	b- select dossard,nom from coureurs order by dossard asc
+
+	c- select equipe,dossard,nom from coureurs order by equipe,nom
+
+	d- select dossard,nom,taille from coureurs order by taille asc
+
+	e- select nom,dossard from coureurs where equipe='LavePlusBlanc'
+
+	f- select nom,dossard from coureurs where coureurs."equipe"='LavePlusBlanc'
+
+	g- select nom,taille,equipe from coureurs group by nom,taille,equipe having taille<180
+
+	h- select nom,taille,equipe from coureurs group by nom,taille,equipe having taille<180 order by taille asc
+
+	i- select couleur from equipes
+
+Question 2:
+
+	a- select nom ||' appartient à l équipe '|| equipe  from coureurs
+
+	b- select nom ||' appartient à l équipe '|| equipe as "appartenance" from coureurs
+
+	c- select upper(nom) as "nom maj", char_length(nom) as "lg" from coureurs
+
+	d- select upper(nom) as "nom maj", char_length(nom) as "lg" from coureurs order by lg asc
+
+	 select upper(nom) as "nom maj", char_length(nom)  from coureurs order by char_length(nom) asc 
+
+	 select upper(nom), char_length(nom)  from coureurs order by upper(nom) asc 
+
+	 select upper(nom) as "nom_maj", char_length(nom) as "lg" from coureurs order by nom_maj asc 
+
+	e- 
+
+
+
+Question 3
+
+	a- select nom from coureurs where nom like 'a%'
+
+	b- select nom from coureurs where nom like '%er%'
+
+	c- select nom from coureurs where nom like '_____'
+	
+	d- select nom from coureurs where nom like '%a__'
+
+	e- select nom from coureurs where nom like '%a__%'
+
+
+Question 4:
+
+	a- select taille/100 from coureurs (le resultat ne correspond pas a notre attente cas il effecture une division entieres)
+
+	b- select taille/100.0 from coureurs (le resultat affiche tout les 0 iutile)
+
+	c- select cast(taille/100.0 as float ) as "taille" from coureurs
+
+	d- select trunc(taille/100.0 , 2) as "taille" from coureurs
+
+Question 5:
+
+	a- select * from coureurs,equipes
+
+	b- select * from coureurs,equipes where "coureurs".equipe ="equipes".nom
+
+	  select * from coureurs join equipes on "coureurs".equipe ="equipes".nom
+
+	c- select coureurs.dossard,coureurs.nom,equipes.nom as "nom equipe",equipes.couleur FROM coureurs join equipes on "coureurs".equipe ="equipes".nom
+
+	d- select coureurs.nom, equipes.directeur from coureurs join equipes on coureurs.equipe = equipes.nom
+
+	e- select coureurs.nom,coureurs.dossard,equipes.directeur from coureurs join equipes on coureurs.equipe = equipes.nom where equipes.directeur='Ralph'
+
+	f- select equipes.directeur from coureurs join equipes on coureurs.equipe = equipes.nom where coureurs.nom='alphonse'
+
+Question 6:
+
+	a- insert INTO equipes (nom,couleur,directeur) VALUES ('Nouvelle Èquipe' , 'orange' , 'Archibald')
+
+
+	b- insert INTO coureurs VALUES ('9','diakite' , 'SuperCarburant' , '193'
+	   insert INTO coureurs VALUES ('8','abou' , 'LavePlusBlanc' , '182')
+
+Question 7:
+
+	a- select equipes.directeur from equipes where equipes.directeur is null
+
+	b- select equipes.directeur from equipes where equipes.directeur is not null
+
+Question 8:
+
+	a- update coureurs set taille=taille-1 where coureurs.equipe='PicsouBank'
+
+	b- update equipes set directeur='bernart' where directeur is null
+
+Question 9:
+
+	 insert into etape(dossard,arrive) values ('14','17:31:30')
+
+Question 10:
+
+	a- select coureurs.dossard,coureurs.nom,etape.arrive from coureurs join etape on etape.dossard=coureurs.dossard order by etape.arrive asc 
+
+	b- select coureurs.dossard,coureurs.nom,etape.arrive from coureurs join etape on  etape.arrive < '17:21:30'
+
+	c- 
